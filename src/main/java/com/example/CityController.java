@@ -184,11 +184,13 @@ public class CityController {
     }
 
     private void highlightRoute(List<String> path) {
+        Color highlightColor = Color.web("#FF4757");
+
         // Highlight Nodes
         for (String loc : path) {
             Shape shape = nodeMap.get(loc);
             if (shape != null) {
-                shape.setFill(Color.CYAN);
+                shape.setFill(highlightColor);
             }
         }
 
@@ -204,7 +206,7 @@ public class CityController {
             }
 
             if (road != null) {
-                road.setStroke(Color.CYAN);
+                road.setStroke(highlightColor);
                 road.setStrokeWidth(6.0);
             }
         }

@@ -4,32 +4,41 @@ An interactive desktop application built with **Java** and **JavaFX** that visua
 
 ---
 
-## 📌 Project Overview
+## 📌 Feature Summary & Demo
 
-**City Route Finder** models a city as a weighted, undirected graph where:
-- **Vertices (Nodes)** represent buildings and landmarks (houses, school, mall, hospital, office, park, etc.).
-- **Edges (Roads)** represent road segments with weights denoting real-world distances in kilometers (km).
-- **Shortest Path Engine** computes the optimal route between any two selected locations using Dijkstra's Algorithm implemented with a Min-Heap Priority Queue.
+![City Route Finder UI](screenshot.png)
 
----
-
-## ✨ Features
-
-- **Interactive Pathfinding**: Select any starting point and destination to find the shortest route with total distance in kilometers and step-by-step path sequence (`Start ➔ ... ➔ Destination`).
-- **Real-Time Visual Highlighting**: The computed optimal route and its road segments dynamically illuminate in vibrant cyan.
-- **Dark-Themed Modern UI**: Clean JavaFX canvas with distinct color-coded buildings, customized ChoiceBoxes, and polished road labels.
+- **Interactive Pathfinding**: Select any starting location and destination to compute the optimal route with total distance in kilometers and step-by-step path sequence (`Start ➔ ... ➔ Destination`).
+- **Dynamic Route Highlighting**: The computed shortest path illuminates in a bright, vibrant red (`#FF4757`) across both nodes and roads.
+- **Dark-Themed Modern UI**: High-contrast JavaFX canvas with distinct color-coded buildings, customized ChoiceBoxes, and clean, non-overlapping road labels.
 - **Special Graph Topologies**:
-  - **🏚️ Abandoned House**: An isolated node with no road connections. Used to demonstrate unreachable state handling in Dijkstra's algorithm (*"No path found"*).
+  - **🏚️ Abandoned House**: An isolated node with no road connections, demonstrating unreachable state handling (*"No path found"*).
   - **🏠 Clair's House**: A residential house connected exclusively to the Mall.
   - **🏠 Charlie's House**: A residential house connected exclusively to the Office.
   - **🏢 Residential Building**: A central multi-connected hub connected to the Mall, School, and Office.
-- **Preset Test Cases**: 6 quick-access buttons in the sidebar for rapid demonstration:
-  1. `John's House ➔ Jim's House` (Longest cross-map route)
-  2. `Hospital ➔ Police` (Service/emergency route)
+- **6 Preset Test Cases**: Instant one-click demonstrations in the sidebar:
+  1. `John's House ➔ Jim's House` (Longest cross-map route across the city)
+  2. `Hospital ➔ Police` (Cross-map service and emergency route)
   3. `Sarah's House ➔ Mall` (Shopping route)
-  4. `Clair's House ➔ Charlie's House` (Route across newly connected houses)
-  5. `Residential Building ➔ Jim's House` (Route starting from the residential hub)
-  6. `Abandoned House ➔ Mall` (Demonstrates unreachable node with no path)
+  4. `Clair's House ➔ Charlie's House` (Traversing across newly connected residential nodes)
+  5. `Residential Building ➔ Jim's House` (Route initiating from the central residential hub)
+  6. `Abandoned House ➔ Mall` (Demonstrates isolated node with no path found)
+
+---
+
+## ⚡ Algorithm & Time Complexity
+
+> **"Implemented using a PriorityQueue, giving Dijkstra's Algorithm a time complexity of $O((V + E) \log V)$, ensuring optimal performance even if the city map expands."**
+
+### Complexity Analysis
+
+- **Time Complexity**: **$\mathcal{O}((V + E) \log V)$**
+  - **Vertices ($V$)**: Every building/location is inserted into the min-heap priority queue at most once ($\mathcal{O}(V \log V)$).
+  - **Edges ($E$)**: Edge relaxation is performed for each adjacent road. Updating or inserting adjacent vertex distances into the priority queue takes $\mathcal{O}(\log V)$ per edge, totaling $\mathcal{O}(E \log V)$.
+  - **Combined**: $\mathcal{O}((V + E) \log V)$ guarantees fast path computation even as additional city blocks and roads are added.
+- **Space Complexity**: **$\mathcal{O}(V + E)$**
+  - Adjacency list representation stores all $V$ vertices and $2E$ bidirectional edges.
+  - Auxiliary distance map (`dist`), parent map (`parent`), and min-heap priority queue each require $\mathcal{O}(V)$ memory.
 
 ---
 
@@ -38,18 +47,19 @@ An interactive desktop application built with **Java** and **JavaFX** that visua
 - **Language**: Java 11+
 - **GUI Framework**: JavaFX (Controls & FXML)
 - **Build Tool**: Apache Maven
-- **Core Algorithm**: Dijkstra's Algorithm ($O((V + E) \log V)$ time complexity using `PriorityQueue`)
+- **Core Algorithm**: Dijkstra's Algorithm with Min-Heap Priority Queue
 
-### Key Classes
+### Key Files
 
 | File | Description |
 |---|---|
-| [`CityGraph.java`](src/main/java/com/example/CityGraph.java) | Adjacency list representation of the city graph, locations, and weighted edges |
-| [`ShortPath.java`](src/main/java/com/example/ShortPath.java) | Dijkstra's shortest path algorithm implementation using a Priority Queue |
-| [`CityController.java`](src/main/java/com/example/CityController.java) | Controller managing UI interactions, path triggers, visual route resets/highlights, and test presets |
+| [`CityGraph.java`](src/main/java/com/example/CityGraph.java) | Adjacency list representation of the city graph, vertices, and weighted road edges |
+| [`ShortPath.java`](src/main/java/com/example/ShortPath.java) | Dijkstra's shortest path algorithm implementation using `java.util.PriorityQueue` |
+| [`CityController.java`](src/main/java/com/example/CityController.java) | Controller managing UI events, path triggers, red visual highlights, resets, and preset test cases |
 | [`App.java`](src/main/java/com/example/App.java) | JavaFX Application entry point |
 | [`primary.fxml`](src/main/resources/com/example/primary.fxml) | FXML layout definition for the map canvas and sidebar panel |
 | [`style.css`](src/main/resources/com/example/style.css) | Custom styling for the dark theme, context menus, and controls |
+| [`screenshot.png`](screenshot.png) | UI screenshot showcasing active route highlighting and clean layout |
 
 ---
 

@@ -184,7 +184,7 @@ public class CityController {
     }
 
     private void highlightRoute(List<String> path) {
-        Color highlightColor = Color.web("#FF4757");
+        Color highlightColor = Color.CYAN;
 
         // Highlight Nodes
         for (String loc : path) {

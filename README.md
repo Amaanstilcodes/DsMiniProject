@@ -9,7 +9,7 @@ An interactive desktop application built with **Java** and **JavaFX** that visua
 ![City Route Finder UI](screenshot.png)
 
 - **Interactive Pathfinding**: Select any starting location and destination to compute the optimal route with total distance in kilometers and step-by-step path sequence (`Start ➔ ... ➔ Destination`).
-- **Dynamic Route Highlighting**: The computed shortest path illuminates in a bright, vibrant red (`#FF4757`) across both nodes and roads.
+- **Dynamic Route Highlighting**: The computed shortest path illuminates in a bright, vibrant cyan (`CYAN`) across both nodes and roads.
 - **Dark-Themed Modern UI**: High-contrast JavaFX canvas with distinct color-coded buildings, customized ChoiceBoxes, and clean, non-overlapping road labels.
 - **Special Graph Topologies**:
   - **🏚️ Abandoned House**: An isolated node with no road connections, demonstrating unreachable state handling (*"No path found"*).
@@ -55,7 +55,7 @@ An interactive desktop application built with **Java** and **JavaFX** that visua
 |---|---|
 | [`CityGraph.java`](src/main/java/com/example/CityGraph.java) | Adjacency list representation of the city graph, vertices, and weighted road edges |
 | [`ShortPath.java`](src/main/java/com/example/ShortPath.java) | Dijkstra's shortest path algorithm implementation using `java.util.PriorityQueue` |
-| [`CityController.java`](src/main/java/com/example/CityController.java) | Controller managing UI events, path triggers, red visual highlights, resets, and preset test cases |
+| [`CityController.java`](src/main/java/com/example/CityController.java) | Controller managing UI events, path triggers, cyan visual highlights, resets, and preset test cases |
 | [`App.java`](src/main/java/com/example/App.java) | JavaFX Application entry point |
 | [`primary.fxml`](src/main/resources/com/example/primary.fxml) | FXML layout definition for the map canvas and sidebar panel |
 | [`style.css`](src/main/resources/com/example/style.css) | Custom styling for the dark theme, context menus, and controls |

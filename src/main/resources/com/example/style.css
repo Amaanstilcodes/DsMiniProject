@@ -1,0 +1,130 @@
+/* =========================================================
+   City Route Finder - Theme & ChoiceBox Stylesheet
+   ========================================================= */
+
+/* ===== ChoiceBox Main Component ===== */
+.choice-box {
+    -fx-background-color: #1E2D3D;
+    -fx-border-color: #2C4A6E;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+    -fx-mark-color: #AED6F1;
+}
+
+.choice-box:hover {
+    -fx-background-color: #25384D;
+    -fx-border-color: #3498DB;
+}
+
+.choice-box:showing {
+    -fx-background-color: #25384D;
+    -fx-border-color: #3498DB;
+}
+
+.choice-box > .label {
+    -fx-text-fill: #ECF0F1;
+    -fx-font-size: 11px;
+}
+
+.choice-box > .open-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0 4px 0 0;
+}
+
+.choice-box > .open-button > .arrow {
+    -fx-background-color: #AED6F1;
+    -fx-padding: 3px 4px;
+}
+
+/* ===== ChoiceBox Popup (JavaFX ContextMenu) ===== */
+.context-menu {
+    -fx-background-color: #1E2D3D;
+    -fx-border-color: #2C4A6E;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 4px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.65), 10, 0, 0, 4);
+}
+
+.context-menu .menu-item {
+    -fx-background-color: #1E2D3D;
+    -fx-background-radius: 4px;
+    -fx-padding: 5px 8px;
+    -fx-cursor: hand;
+}
+
+.context-menu .menu-item > .label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 11px;
+}
+
+.context-menu .menu-item:focused,
+.context-menu .menu-item:hover {
+    -fx-background-color: #2471A3;
+}
+
+.context-menu .menu-item:focused > .label,
+.context-menu .menu-item:hover > .label {
+    -fx-text-fill: #FFFFFF;
+}
+
+.context-menu .radio-menu-item:checked {
+    -fx-background-color: #173854;
+}
+
+.context-menu .radio-menu-item:checked > .label {
+    -fx-text-fill: #AED6F1;
+    -fx-font-weight: bold;
+}
+
+.context-menu .radio-menu-item .left-container {
+    -fx-padding: 0 4px 0 0;
+}
+
+.context-menu .radio-menu-item .radio {
+    -fx-shape: "M 0 3 L 3 6 L 8 0 L 9 1 L 3 8 L -1 4 Z";
+    -fx-background-color: transparent;
+    -fx-padding: 3px;
+}
+
+.context-menu .radio-menu-item:checked .radio {
+    -fx-background-color: #3498DB;
+}
+
+.context-menu .scroll-arrow {
+    -fx-background-color: #AED6F1;
+}
+
+.context-menu .scroll-arrow:hover {
+    -fx-background-color: #FFFFFF;
+}
+
+/* ===== Fallback for ComboBox Popups ===== */
+.combo-box-popup .list-view {
+    -fx-background-color: #1E2D3D;
+    -fx-border-color: #2C4A6E;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+}
+
+.combo-box-popup .list-cell {
+    -fx-background-color: #1E2D3D;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 11px;
+    -fx-padding: 5px 8px;
+}
+
+.combo-box-popup .list-cell:hover,
+.combo-box-popup .list-cell:filled:hover {
+    -fx-background-color: #2471A3;
+    -fx-text-fill: #FFFFFF;
+}
+
+.combo-box-popup .list-cell:filled:selected {
+    -fx-background-color: #173854;
+    -fx-text-fill: #AED6F1;
+}
